@@ -1,20 +1,23 @@
-
 var my_reslt = document.getElementById("res") ;
 /**
- * Problem 1
- * The sum of all the multiples of 3 or 5 below 1000.
+ * Problem 2
+ * he terms in the Fibonacci sequence whose values do not exceed four million, 
+ * find the sum of the even-valued terms.
  */
 function euler(){
-    let _below = 1000;
-     let sum = 0;
-     for (let i = 1; i < _below; i++) {
-        if(i%3==0 || i%5==0)
-                sum += i;
-      }
+    let even_val = 4 * Math.pow(10, 6) - 2  ; // 2 terme f1, f2
+    let f1 = 1, f2 = 2,fn = 0;
+    let res = 2;
+     
+    do{
+        fn =  f1 + f2;
+        f1 = f2;
+        f2 = fn;
+        if(fn%2==0){
+            res += fn;
+        } 
+    }while( fn < even_val )
 
-    return sum;
+    return res;
 }
 my_reslt.innerText = euler();
-
-
-
