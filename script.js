@@ -1,31 +1,37 @@
-var my_reslt = document.getElementById("res") ;
+var result = document.getElementById("res") ;
 /**
- * Problem 3
+ * Problem 4
  * 
- *  The prime factors of 13195 are 5, 7, 13 and 29.
- * What is the largest prime factor of the number 600851475143 ?
+ *  Find the largest palindrome made from the product of two 3-digit numbers. 
  */
-var limit = 600851475143;
+var limit = 1000;
 function euler(){
 
-  let res = 0;
-  for(let i=3; i < Math.sqrt( limit ); i+=2){
-    if(isPrime(i) )
-        if(limit % i == 0)
-                res = i;
-  }
+   let t1 =0, t2 = 0, res = 0;
 
+   for(let i=0; i < limit; i++)
+        for(let j=0; j <= i; j++)
+            // ind the largest palindrome made from the product of two 3-digit numbers.
+            if( isPalindrome(i*j) && (i+j > t1+t2) )
+                res = i*j;                        
     return res;
 }
 
-my_reslt.innerText = euler();
+result.innerText = euler();
 
-function isPrime(p){
 
-    if(p%2==0 || p%3==0) return false;
-    for(let i=5; i <= Math.sqrt(p); i+=2){
-        if(p%i==0)
-             return false;
-    }
-    return true;
+function isPalindrome(nb){
+    // A palindromic number reads the same both ways.
+    let invr_nb = 0;
+    let copy_nb = nb;
+
+    do{
+        let r   =  copy_nb % 10;
+        invr_nb =  invr_nb*10 + r;
+        copy_nb =  Math.floor( copy_nb/10 );
+
+    } while( copy_nb > 0 )
+
+    if( invr_nb == nb ) return true;
+    return false;
 }
