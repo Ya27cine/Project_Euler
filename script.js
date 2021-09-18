@@ -1,29 +1,20 @@
 var result = document.getElementById("res") ;
 /**
- * Problem 5
+ * Problem 6
  * 
- *  What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20? 
+ *   Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.  
  */
 var limit = 20;
 
 function euler(){
     let res = 1;
 
-    while( ! divided( res ) ){
-        res++;
-    }    
-    return test;
+    return res;
 }
 
 result.innerText = euler();
 
 function divided(nb){
-    // nb  is evenly divisible by all of the numbers from 1 to limit
-    let valid = false;
-    for(let i=2; i < limit; i++){
-        if( nb % i != 0)
-                return false;
-    }
-    return true;
+    
 }
 
