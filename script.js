@@ -1,37 +1,29 @@
 var result = document.getElementById("res") ;
 /**
- * Problem 4
+ * Problem 5
  * 
- *  Find the largest palindrome made from the product of two 3-digit numbers. 
+ *  What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20? 
  */
-var limit = 1000;
+var limit = 20;
+
 function euler(){
+    let res = 1;
 
-   let t1 =0, t2 = 0, res = 0;
-
-   for(let i=0; i < limit; i++)
-        for(let j=0; j <= i; j++)
-            // ind the largest palindrome made from the product of two 3-digit numbers.
-            if( isPalindrome(i*j) && (i+j > t1+t2) )
-                res = i*j;                        
-    return res;
+    while( ! divided( res ) ){
+        res++;
+    }    
+    return test;
 }
 
 result.innerText = euler();
 
-
-function isPalindrome(nb){
-    // A palindromic number reads the same both ways.
-    let invr_nb = 0;
-    let copy_nb = nb;
-
-    do{
-        let r   =  copy_nb % 10;
-        invr_nb =  invr_nb*10 + r;
-        copy_nb =  Math.floor( copy_nb/10 );
-
-    } while( copy_nb > 0 )
-
-    if( invr_nb == nb ) return true;
-    return false;
+function divided(nb){
+    // nb  is evenly divisible by all of the numbers from 1 to limit
+    let valid = false;
+    for(let i=2; i < limit; i++){
+        if( nb % i != 0)
+                return false;
+    }
+    return true;
 }
+
