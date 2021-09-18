@@ -12,7 +12,7 @@ function euler(){
     while( ! divided( res ) ){
         res++;
     }    
-    return test;
+    return res;
 }
 
 result.innerText = euler();
