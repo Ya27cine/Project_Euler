@@ -9,6 +9,12 @@ var limit = 20;
 function euler(){
     let res = 1;
 
+<<<<<<< HEAD
+=======
+    while( ! divided( res ) ){
+        res++;
+    }    
+>>>>>>> 6ed0d30efb1b69e1b6bde0ddd9e3f1edb8df4486
     return res;
 }
 
