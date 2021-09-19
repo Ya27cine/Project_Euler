@@ -4,23 +4,26 @@ var result = document.getElementById("res") ;
  * 
  *   Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.  
  */
-var limit = 20;
-
+let limit = 100;
 function euler(){
-    let res = 1;
+    let res = squqres_of_the_sum() - sum_of_the_squares() ;
 
-<<<<<<< HEAD
-=======
-    while( ! divided( res ) ){
-        res++;
-    }    
->>>>>>> 6ed0d30efb1b69e1b6bde0ddd9e3f1edb8df4486
     return res;
 }
 
 result.innerText = euler();
 
-function divided(nb){
-    
+function sum_of_the_squares(){
+    let sum = 0;
+    for(let i=1; i <= limit ; i++)
+            sum = sum + Math.pow(i, 2);
+    return sum;
+}
+
+function squqres_of_the_sum(){
+    let sum = 0;
+    for(let i=1; i <= limit ; i++)
+            sum = sum + i;
+    return Math.pow(sum, 2);
 }
 
